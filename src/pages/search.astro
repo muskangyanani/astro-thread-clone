@@ -1,5 +1,6 @@
 ---
 import searchIcon from '../images/search.png'
+import Layout from '../layout/default.astro'
 
 const fetchRandomUser = async () => {
   try {
@@ -18,50 +19,51 @@ const fetchRandomUser = async () => {
 const users = await fetchRandomUser()
 ---
 
-<section class="flex flex-col items-center justify-center mt-4">
-  <div
-    class="border border-neutral-800 w-[640px] h-[4.2rem] gap-3 flex items-center justify-self-end px-6 text-white bg-[#0A0A0A] rounded-2xl"
-  >
-    <img src={searchIcon.src} alt="search" width="20" />
-    <input
-      type="text"
-      class="bg-transparent w-full placeholder-neutral-500 py-2 text-lg text focus:outline-none"
-      placeholder="Search"
-    />
-  </div>
+<Layout>
+  <section class="flex flex-col items-center justify-center mt-4">
+    <div
+      class="border border-neutral-800 w-[640px] h-[4.2rem] gap-3 flex items-center justify-self-end px-6 text-white bg-[#0A0A0A] rounded-2xl"
+    >
+      <img src={searchIcon.src} alt="search" width="20" />
+      <input
+        type="text"
+        class="bg-transparent w-full placeholder-neutral-500 py-2 text-lg text focus:outline-none"
+        placeholder="Search"
+      />
+    </div>
 
-  {
-    users.map((user) => {
-      return (
-        <div class="box w-[640px] mt-6 flex justify-center gap-3 text-white ">
-          <div class="profilerounded-full h-12 w-12 mt-4">
-            <img src={user.picture.large} alt="" class="rounded-full" />
-          </div>
-          <div class="content w-full border-b-2 border-neutral-800 pb-1">
-            <div class="upper p-1 flex items-center justify-between">
-              <div class="name">
-                <b>{user.login.username}</b>
-                <p class="text-neutral-600">
-                  {user.name.first}
-                  {user.name.last}
-                </p>
+    {
+      users.map((user) => {
+        return (
+          <div class="box w-[640px] mt-6 flex justify-center gap-3 text-white ">
+            <div class="profilerounded-full h-12 w-12 mt-4">
+              <img src={user.picture.large} alt="" class="rounded-full" />
+            </div>
+            <div class="content w-full border-b-2 border-neutral-800 pb-1">
+              <div class="upper p-1 flex items-center justify-between">
+                <div class="name">
+                  <b>{user.login.username}</b>
+                  <p class="text-neutral-600">
+                    {user.name.first}
+                    {user.name.last}
+                  </p>
+                </div>
+                <div>
+                  <button class="px-8 py-1 border border-neutral-700 rounded-xl">
+                    Follow
+                  </button>
+                </div>
               </div>
-              <div>
-                <button class="px-8 py-1 border border-neutral-700 rounded-xl">
-                  Follow
-                </button>
+              <div class="lower">
+                <p>1.2k followers</p>
               </div>
             </div>
-            <div class="lower">
-              <p>1.2k followers</p>
-            </div>
           </div>
-        </div>
-      )
-    })
-  }
+        )
+      })
+    }
 
-  <!-- <div
+    <!-- <div
     class="box w-[640px] mt-4 flex justify-center gap-3 text-white border-b-2 border-neutral-800"
   >
     <div class="profilerounded-full h-12 w-12 mt-4">
@@ -87,4 +89,5 @@ const users = await fetchRandomUser()
       </div>
     </div>
   </div> -->
-</section>
+  </section>
+</Layout>
