@@ -1,47 +1,19 @@
 ---
 import logo from '../images/logo.webp'
-import homeIcon from '../images/home.png'
-import searchIcon from '../images/search.png'
-import createIcon from '../images/create.png'
-import likeIcon from '../images/like.png'
-import userIcon from '../images/user.png'
 import menuIcon from '../images/menu.png'
+import NavItems from './nav-items.astro'
 ---
 
-<nav class="h-16 flex items-center justify-center bg-[#101010] mt-2">
-  <menu class="h-full inline-flex flex-1 items-center justify-evenly">
-    <div class="-ml-64">
-      <a href="#"><img src={logo.src} alt="logo" width="34" /></a>
+<nav class="h-16 flex items-center justify-center relative">
+  <menu
+    class="w-full h-16 bg-[#101010] inline-flex flex-1 items-center justify-evenly fixed"
+  >
+    <div class="fixed left-auto w-8 sm:left-20 sm:mx-2">
+      <a href="/"><img src={logo.src} alt="logo" /></a>
     </div>
-    <div class="nav flex gap-4">
-      <li
-        class="p-4 px-8 transition duration-300 ease-in-out hover:bg-neutral-900 rounded-lg"
-      >
-        <a href="#"><img width="34" src={homeIcon.src} alt="" /></a>
-      </li>
-      <li
-        class="p-4 px-8 transition duration-200 ease-in-out hover:bg-neutral-900 rounded-lg"
-      >
-        <a href="/search"><img width="34" src={searchIcon.src} alt="" /></a>
-      </li>
-      <li
-        class="p-4 px-8 transition duration-200 ease-in-out hover:bg-neutral-900 rounded-lg"
-      >
-        <a href="#"><img width="34" src={createIcon.src} alt="" /></a>
-      </li>
-      <li
-        class="p-4 px-8 transition duration-200 ease-in-out hover:bg-neutral-900 rounded-lg"
-      >
-        <a href="/activity"><img width="34" src={likeIcon.src} alt="" /></a>
-      </li>
-      <li
-        class="p-4 px-8 transition duration-200 ease-in-out hover:bg-neutral-900 rounded-lg"
-      >
-        <a href="profile"><img width="34" src={userIcon.src} alt="" /></a>
-      </li>
-    </div>
-    <div class="-mr-64">
-      <a href="#"><img src={menuIcon.src} alt="menu" width="34" /></a>
+    <NavItems />
+    <div class="fixed right-6 w-8 sm:right-20 sm:mx-2">
+      <a href="/"><img src={menuIcon.src} alt="menu" /></a>
     </div>
   </menu>
 </nav>
