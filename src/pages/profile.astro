@@ -2,6 +2,7 @@
 import Layout from '../layout/default.astro'
 import insta from '../images/insta.png'
 import profilePic from '../images/me.png'
+import Thread from '../components/threads.jsx'
 ---
 
 <Layout>
@@ -30,33 +31,6 @@ import profilePic from '../images/me.png'
       class="w-full mt-6 py-1 border font-bold text-sm border-neutral-700 rounded-xl sm:py-2"
       >Edit Profile</button
     >
-    <div
-      class="mt-7 flex items-center justify-around w-full font-bold text-md text-neutral-700"
-    >
-      <button
-        class="w-full text-center text-md py-2 cursor-pointer focus:text-white focus:border-b focus:border-white transition-colors"
-      >
-        Threads
-      </button>
-      <button
-        class="w-full text-center text-md py-2 cursor-pointer default:text-white focus:text-white focus:border-b focus:border-white transition-colors"
-      >
-        Replies
-      </button>
-      <button
-        class="w-full text-center text-md py-2 cursor-pointer focus:text-white focus:border-b focus:border-white transition-colors"
-        >Repost</button
-      >
-    </div>
-    <div class="w-full h-[.1px] bg-neutral-700"></div>
-
-    <!-- TODO: render this button when thread button is clicked -->
-    <div class="w-full h-60 flex items-center justify-center md:h-80">
-      <button
-        class="px-4 py-2 font-bold text-sm text-white border border-neutral-700 rounded-xl"
-      >
-        Start your first thread
-      </button>
-    </div>
+    <Thread client:load />
   </section>
 </Layout>
