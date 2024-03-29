@@ -23,7 +23,7 @@ import userIcon from '../images/user.png'
     <li
       class="p-2 px-2 transition sm:px-8 sm:py-4 duration-300 ease-in-out hover:bg-[#1C1C1C] rounded-lg"
     >
-      <a href="/"><img src={createIcon.src} alt="" class="w-8" /></a>
+      <button><img src={createIcon.src} alt="" class="w-8" /></button>
     </li>
     <li
       class="p-2 px-2 transition sm:px-8 sm:py-4 duration-300 ease-in-out hover:bg-[#1C1C1C] rounded-lg"
@@ -36,4 +36,36 @@ import userIcon from '../images/user.png'
       <a href="profile"><img src={userIcon.src} alt="" class="w-8" /></a>
     </li>
   </div>
+
+  <!-- Thread Modal -->
+  <!-- only at sm breakpoint -->
+  <!-- <div id="modal-overlay" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black opacity-30"></div>
+    <div class="absolute inset-0 flex items-center justify-center">
+      <div class="bg-[#181818] rounded-lg p-4 sm:p-8">
+        <h1>Create a Thread</h1>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+  <script>
+    const modalOverlay = document.getElementById('modal-overlay')
+    const createButton = document.querySelector('button')
+    const closeModal = document.getElementById('close-modal')
+
+    createButton.addEventListener('click', () => {
+      modalOverlay.classList.remove('hidden')
+    })
+
+    closeModal.addEventListener('click', () => {
+      modalOverlay.classList.add('hidden')
+    })
+
+    window.addEventListener('click', (event) => {
+      if (event.target === modalOverlay) {
+        modalOverlay.classList.add('hidden')
+      }
+    })
+  </script>
 </div>
