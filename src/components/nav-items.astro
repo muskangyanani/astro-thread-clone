@@ -48,24 +48,24 @@ import userIcon from '../images/user.png'
     </div>
   </div>
 </div> -->
-
-  <script>
-    const modalOverlay = document.getElementById('modal-overlay')
-    const createButton = document.querySelector('button')
-    const closeModal = document.getElementById('close-modal')
-
-    createButton.addEventListener('click', () => {
-      modalOverlay.classList.remove('hidden')
-    })
-
-    closeModal.addEventListener('click', () => {
-      modalOverlay.classList.add('hidden')
-    })
-
-    window.addEventListener('click', (event) => {
-      if (event.target === modalOverlay) {
-        modalOverlay.classList.add('hidden')
-      }
-    })
-  </script>
 </div>
+
+<!-- <script>
+  const modalOverlay = document.getElementById('modal-overlay')
+  const createButton = document.querySelector('button')
+  const closeModal = document.getElementById('close-modal')
+
+  createButton.addEventListener('click', () => {
+    modalOverlay.classList.remove('hidden')
+  })
+
+  closeModal.addEventListener('click', () => {
+    modalOverlay.classList.add('hidden')
+  })
+
+  window.addEventListener('click', (event) => {
+    if (event.target === modalOverlay) {
+      modalOverlay.classList.add('hidden')
+    }
+  })
+</script> -->

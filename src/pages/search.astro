@@ -43,7 +43,7 @@ const users = await fetchRandomUser()
             </div>
             <div class="content w-full border-b-2 border-neutral-800 pb-1">
               <div class="upper p-1 flex justify-between">
-                <div class="name text-sm w-28 overflow-hidden">
+                <div class="name text-sm w-28 truncate overflow-hidden max-w-sm sm:w-full">
                   <b>{user.login.username}</b>
                   <p class="text-neutral-600">
                     {user.name.first}
