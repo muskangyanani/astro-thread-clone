@@ -4,6 +4,10 @@ import searchIcon from '../images/search.png'
 import createIcon from '../images/create.png'
 import likeIcon from '../images/like.png'
 import userIcon from '../images/user.png'
+import profilePic from '../images/me.png'
+import photoIcon from '../images/photos.png'
+import gifIcon from '../images/gif.png'
+import menuIcon from '../images/menuR.png'
 ---
 
 <div class="relative flex justify-center">
@@ -23,7 +27,9 @@ import userIcon from '../images/user.png'
     <li
       class="p-2 px-2 transition sm:px-8 sm:py-4 duration-300 ease-in-out hover:bg-[#1C1C1C] rounded-lg"
     >
-      <button><img src={createIcon.src} alt="" class="w-8" /></button>
+      <button id="createThread"
+        ><img src={createIcon.src} alt="" class="w-8" /></button
+      >
     </li>
     <li
       class="p-2 px-2 transition sm:px-8 sm:py-4 duration-300 ease-in-out hover:bg-[#1C1C1C] rounded-lg"
@@ -39,33 +45,99 @@ import userIcon from '../images/user.png'
 
   <!-- Thread Modal -->
   <!-- only at sm breakpoint -->
-  <!-- <div id="modal-overlay" class="fixed inset-0 z-50 hidden">
-    <div class="absolute inset-0 bg-black opacity-30"></div>
-    <div class="absolute inset-0 flex items-center justify-center">
-      <div class="bg-[#181818] rounded-lg p-4 sm:p-8">
-        <h1>Create a Thread</h1>
+  <div id="modal-overlay" class="fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black opacity-50"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center">
+      <h1 class="text-white font-bold text-center hidden sm:block p-3">
+        New thread
+      </h1>
+      <div
+        class="bg-[#181818] w-full h-full sm:w-[576px] sm:h-fit sm:rounded-xl p-4 sm:p-8 text-white border border-neutral-700 ease-in-out transition duration-500"
+      >
+        <div class="flex gap-8 justify-between sm:hidden">
+          <button>Cancle</button>
+          <h2 class="font-bold text-lg">New Thread</h2>
+        </div>
+        <div class="flex flex-col gap-2">
+          <div class="mt-6 flex gap-2 sm:mt-0">
+            <img
+              class="rounded-full border border-neutral-700 w-12"
+              src={profilePic.src}
+              alt="profile pic"
+            />
+            <div>
+              <p class="font-bold">muskaann.29</p>
+              <input
+                type="text"
+                class="bg-transparent placeholder:text-sm text-sm placeholder:text-[#777777] outline-none"
+                placeholder="Start a thread..."
+              />
+            </div>
+          </div>
+          <div class="flex gap-4 ml-5">
+            <div class="line bg-neutral-600 h-10 w-[2px] rounded"></div>
+            <div class="flex items-center gap-4 ml-3">
+              <img src={photoIcon.src} alt="" class="w-6 h-6" />
+              <img src={gifIcon.src} alt="" class="w-6 h-6" />
+              <p class="text-xl text-[#737373]">#</p>
+              <img src={menuIcon.src} alt="" class="w-6 h-6" />
+            </div>
+          </div>
+          <div class="flex gap-4 ml-2">
+            <img
+              class="rounded-full border border-neutral-700 w-6"
+              src={profilePic.src}
+              alt="profile pic"
+            />
+            <button class="text-[#3E3E3E] bg-transparent outline-none"
+              >Add to Thread</button
+            >
+          </div>
+          <div class="hidden sm:flex sm:justify-between mt-8 relative">
+            <div>
+              <button id="dropdownButton" class="text-[#777777]">
+                Anyone can reply
+              </button>
+              <div
+                id="dropdown"
+                class="hidden absolute left-0 w-48 bg-[#181818] text-white font-bold shadow-md py-2 rounded-xl"
+              >
+                <a href="#" class="block px-5 py-2">Anyone</a>
+                <div class="bg-neutral-700 h-[1px] w-full"></div>
+                <a href="#" class="block px-5 py-2">Profile you follow</a>
+                <div class="bg-neutral-700 h-[1px] w-full"></div>
+                <a href="#" class="block px-5 py-2">Mentioned only</a>
+              </div>
+            </div>
+            <button
+              class="px-6 py-1 border bg-[#5e5e5e] text-black border-neutral-700 rounded-full"
+              >Post</button
+            >
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div> -->
 </div>
 
-<!-- <script>
+<script>
   const modalOverlay = document.getElementById('modal-overlay')
-  const createButton = document.querySelector('button')
-  const closeModal = document.getElementById('close-modal')
+  const createButton = document.getElementById('createThread')
+  const cancelButton = document.querySelector('#modal-overlay button')
 
-  createButton.addEventListener('click', () => {
-    modalOverlay.classList.remove('hidden')
+  createButton.addEventListener('click', (event) => {
+    event.stopPropagation() // Stop the event propagation
+    modalOverlay.classList.toggle('hidden') // Toggle the 'hidden' class
   })
 
-  closeModal.addEventListener('click', () => {
-    modalOverlay.classList.add('hidden')
+  cancelButton.addEventListener('click', () => {
+    modalOverlay.classList.add('hidden') // Hide the modal when Cancel button is clicked
+    createButton.focus() // Set focus back to the createButton after closing the modal
   })
 
-  window.addEventListener('click', (event) => {
-    if (event.target === modalOverlay) {
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
       modalOverlay.classList.add('hidden')
     }
   })
-</script> -->
+</script>
