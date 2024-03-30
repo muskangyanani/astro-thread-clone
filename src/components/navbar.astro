@@ -13,9 +13,11 @@ import NavItems from './nav-items.astro'
     </div>
     <NavItems />
     <div class="fixed right-6 w-14 sm:right-0 sm:mx-6 lg:right-20">
-      <button id="dropdownButton">
-        <img src={menuIcon.src} alt="" />
+      <button>
+        <img id="dropdownButton" src={menuIcon.src} alt="" />
       </button>
+
+      <!-- TODO: Fix the menu button -->
       <div
         id="dropdown"
         class="hidden absolute right-0 w-48 bg-[#181818] text-white font-bold shadow-md py-2 rounded-2xl"
