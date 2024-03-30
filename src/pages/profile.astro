@@ -27,10 +27,17 @@ import Thread from '../components/threads.jsx'
       <p>110 followers</p>
       <img src={insta.src} alt="" width="28" />
     </div>
-    <button
-      class="w-full mt-6 py-1 border font-bold text-sm border-neutral-700 rounded-xl sm:py-2"
-      >Edit Profile</button
-    >
+    <div class="flex gap-2">
+      <button
+        class="w-full mt-6 py-1 border font-bold text-sm border-neutral-700 rounded-lg sm:py-2"
+        >Edit Profile</button
+      >
+      <button
+        class="w-full mt-6 py-1 border font-bold text-sm border-neutral-700 rounded-lg sm:py-2"
+        >Share Profile</button
+      >
+    </div>
+
     <Thread client:load />
   </section>
 </Layout>

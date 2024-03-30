@@ -13,7 +13,34 @@ import NavItems from './nav-items.astro'
     </div>
     <NavItems />
     <div class="fixed right-6 w-8 sm:right-0 sm:mx-6 lg:right-20">
-      <a href="/"><img src={menuIcon.src} alt="menu" /></a>
+      <button id="dropdownButton">
+        <img src={menuIcon.src} alt="" />
+      </button>
+      <div
+        id="dropdown"
+        class="hidden absolute right-0 w-48 bg-[#181818] text-white font-bold shadow-md py-2 rounded-2xl"
+      >
+        <a href="#" class="block px-5 py-2">Appearance</a>
+        <div class="bg-neutral-700 h-[1px] w-full"></div>
+        <a href="#" class="block px-5 py-2">Settings</a>
+        <div class="bg-neutral-700 h-[1px] w-full"></div>
+        <a href="#" class="block px-5 py-2">Saved</a>
+        <div class="bg-neutral-700 h-[1px] w-full"></div>
+        <a href="#" class="block px-5 py-2">Your likes</a>
+        <div class="bg-neutral-700 h-[1px] w-full"></div>
+        <a href="#" class="block px-5 py-2">Report a problem</a>
+        <div class="bg-neutral-700 h-[1px] w-full"></div>
+        <a href="#" class="block px-5 py-2">Log out</a>
+      </div>
     </div>
   </menu>
 </nav>
+
+<script>
+  const dropdownButton = document.getElementById('dropdownButton')
+  const dropdown = document.getElementById('dropdown')
+
+  dropdownButton.addEventListener('click', () => {
+    dropdown.classList.toggle('hidden')
+  })
+</script>
