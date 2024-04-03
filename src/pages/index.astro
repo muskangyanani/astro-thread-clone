@@ -1,5 +1,7 @@
 ---
 import Layout from '../layout/default.astro'
+import FollowNav from '../components/home-followNav.jsx'
+import CreateThread from '../components/home-create-thread'
 ---
 
 <html lang="en">
@@ -12,5 +14,9 @@ import Layout from '../layout/default.astro'
   </head>
   <body>
     <Layout />
+    <div class="home flex items-center justify-center">
+      <FollowNav />
+      <CreateThread />
+    </div>
   </body>
 </html>
