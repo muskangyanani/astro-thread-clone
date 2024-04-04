@@ -72,7 +72,7 @@ export default function Posts() {
                     <b>{user.login.username}</b>
                     <p className='text-sm'>Lorem ipsum dolor, elit. Laborum, dolores!</p>
                   </div>
-                  <MoreHorizIcon className='text-white sm:absolute sm:right-0' />
+                  <MoreHorizIcon className='text-white sm:absolute sm:right-0 cursor-pointer' />
                 </div>
                 <div className="postImage rounded-md flex flex-col gap-2 h-full">
                   <img src={postImages[index]} alt="" className='rounded-md' />
